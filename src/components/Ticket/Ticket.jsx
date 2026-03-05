@@ -12,7 +12,7 @@ const Ticket = ({ ticket, handleInProgress }) => {
   return (
     <div
       key={ticket.id}
-      className="bg-base-200 rounded-lg p-4 shadow-md w-full max-w-xl flex flex-col justify-between"
+      className="bg-base-200 rounded-lg p-4 shadow-md w-full flex flex-col justify-between"
     >
       <div className="flex justify-between items-start mb-2">
         <h2 className="font-semibold text-md">{ticket.title}</h2>
@@ -39,9 +39,11 @@ const Ticket = ({ ticket, handleInProgress }) => {
         </div>
       </div>
 
-      <div className="text-sm text-gray-500 mb-4">{ticket.description}</div>
+      <div className="text-xs md:text-sm text-gray-500 mb-4">
+        {ticket.description}
+      </div>
 
-      <div className="flex justify-between items-center text-xs text-gray-500">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-xs text-gray-500">
         <div className="flex gap-3">
           <span>#{ticket.ticketNo}</span>
           <span

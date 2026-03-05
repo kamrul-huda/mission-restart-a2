@@ -4,9 +4,10 @@ import banner_2 from "../../assets/banner_2.svg";
 
 const Banner = ({ inProgressTickets, completedTasks }) => {
   return (
-    <div className="max-w-7xl mx-auto flex gap-4">
+    // <div className="max-w-7xl mx-auto flex gap-4">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="relative">
-        <img src={banner_1}></img>
+        <img src={banner_1} className="w-full h-auto" />
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <div className="text-white">In-Progress</div>
           <div className="text-white text-center text-4xl font-bold">
@@ -15,7 +16,7 @@ const Banner = ({ inProgressTickets, completedTasks }) => {
         </div>
       </div>
       <div className="relative">
-        <img src={banner_2}></img>
+        <img src={banner_2} className="w-full h-auto" />
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <div className="text-white">Resolved</div>
           <p className="text-white text-center text-4xl font-bold">

@@ -16,10 +16,13 @@ const fetchTickets = async () => {
 const ticketspromise = fetchTickets();
 function App() {
   const [inProgressTickets, setInProgressTickets] = useState([]);
+
   const handleInProgress = (ticket) => {
-    const newInProgress = [...inProgressTickets, ticket];
-    setInProgressTickets(newInProgress);
-    toast("Task is in-proggress.");
+    const exists = inProgressTickets.find((t) => t.id === ticket.id);
+    if (!exists) {
+      setInProgressTickets([...inProgressTickets, ticket]);
+      toast("Task is in-progress.");
+    }
   };
 
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -40,14 +43,17 @@ function App() {
         <Navbar></Navbar>
       </div>
 
-      <div className="bg-gray-200 max-w-7xl mx-auto p-10 space-y-12">
+      <div className="bg-gray-200 max-w-7xl mx-auto px-4 md:px-10 py-10 space-y-12">
         <Banner
           inProgressTickets={inProgressTickets}
           completedTasks={completedTasks}
         ></Banner>
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-9">
+        {/* <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-9"> */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-9">
             <p className="font-bold mb-4">Customer Tickets</p>
+
             <Suspense
               fallback={
                 <span className="loading loading-dots loading-xl"></span>
@@ -56,10 +62,11 @@ function App() {
               <CustomerTickets
                 ticketspromise={ticketspromise}
                 handleInProgress={handleInProgress}
-              ></CustomerTickets>
+              />
             </Suspense>
           </div>
-          <div className="col-span-3">
+
+          <div className="lg:col-span-3">
             <p className="font-bold mb-4">Your Status</p>
             <div className="space-y-4">
               <TaskStatus

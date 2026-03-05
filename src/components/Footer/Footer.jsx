@@ -7,17 +7,20 @@ import globe_icon from "../../assets/fi_globe.png";
 const Footer = () => {
   return (
     <div className="bg-black text-gray-300 border-t border-blue-500">
-      <div className="max-w-7xl mx-auto grid grid-cols-5 gap-6 p-4">
-        <div className="py-4">
-          <h1 className="text-white font-bold">CS — Ticket System</h1>
-          <p className="font-light">
-            The **CS Ticket System** tracks issues, manages requests, assigns
-            tasks, and ensures fast, accountable resolution.
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-6 py-10">
+        {/* Brand */}
+        <div className="space-y-3">
+          <h1 className="text-white font-bold text-lg">CS — Ticket System</h1>
+
+          <p className="text-sm leading-relaxed text-gray-400">
+            The CS Ticket System tracks issues, manages requests, assigns tasks,
+            and ensures fast, accountable resolution.
           </p>
         </div>
 
-        <div className="py-4">
-          <h1 className="text-white font-bold">Company</h1>
+        {/* Company */}
+        <div className="space-y-2">
+          <h1 className="text-white font-semibold">Company</h1>
           <p>
             <a className="link link-hover">About Us</a>
           </p>
@@ -29,8 +32,9 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="py-4">
-          <h1 className="text-white font-bold">Services</h1>
+        {/* Services */}
+        <div className="space-y-2">
+          <h1 className="text-white font-semibold">Services</h1>
           <p>
             <a className="link link-hover">Products & Services</a>
           </p>
@@ -42,8 +46,9 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="py-4">
-          <h1 className="text-white font-bold">Information</h1>
+        {/* Information */}
+        <div className="space-y-2">
+          <h1 className="text-white font-semibold">Information</h1>
           <p>
             <a className="link link-hover">Privacy Policy</a>
           </p>
@@ -55,31 +60,39 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="py-4">
-          <h1 className="text-white font-bold">Social Links</h1>
-          <div className="flex flex-col gap-2">
-            <span className="flex gap-1">
-              <img className="h-6" src={globe_icon}></img>
-              <span>@CS — Ticket System</span>
-            </span>
-            <span className="flex gap-1">
-              <img className="h-6" src={linkedin_icon}></img>
-              <span>@CS — Ticket System</span>
-            </span>
-            <span className="flex gap-1">
-              <img className="h-6" src={facebook_icon}></img>
-              <span>@CS — Ticket System</span>
-            </span>
-            <span className="flex gap-1">
-              <img className="h-6" src={envelop_icon}></img>{" "}
-              <span> support@cst.com</span>
-            </span>
+        {/* Social */}
+        <div className="space-y-3">
+          <h1 className="text-white font-semibold">Social Links</h1>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <img className="h-5 w-5" src={globe_icon} />
+              <span className="text-sm">@CS — Ticket System</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <img className="h-5 w-5" src={linkedin_icon} />
+              <span className="text-sm">@CS — Ticket System</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <img className="h-5 w-5" src={facebook_icon} />
+              <span className="text-sm">@CS — Ticket System</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <img className="h-5 w-5" src={envelop_icon} />
+              <span className="text-sm">support@cst.com</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-4 mt-6  text-center text-sm text-gray-400">
-        © 2025 CS — Ticket System. All rights reserved.
+      {/* Bottom copyright */}
+      <div className="border-t border-gray-700">
+        <div className="max-w-7xl mx-auto px-6 py-4 text-center text-xs md:text-sm text-gray-400">
+          © 2025 CS — Ticket System. All rights reserved.
+        </div>
       </div>
     </div>
   );

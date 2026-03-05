@@ -28,7 +28,7 @@ const TaskStatus = ({
                       handleCompleted(ticket);
                       handleRemove(ticket);
                     }}
-                    className="bg-[#00A854] hover:bg-[#008F47] border-none w-full text-white normal-case text-md h-8"
+                    className="bg-[#00A854] hover:bg-[#008F47] border-none w-full text-white normal-case text-md font-bold h-8"
                   >
                     Complete
                   </button>
