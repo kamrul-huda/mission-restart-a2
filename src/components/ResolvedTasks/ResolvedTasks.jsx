@@ -1,18 +1,22 @@
-import React from "react";
+const ResolvedTasks = ({ completedTasks }) => {
+  const tickets = completedTasks;
 
-const ResolvedTasks = () => {
   return (
-    <div className="card w-80 bg-base-100 shadow-xl border border-gray-100">
-      <div className="card-body p-6">
-        <h2 className="text-[#001F3F] font-bold text-lg mb-4">
-          Payment Failed - Card Declined
-        </h2>
-        <div className="card-actions">
-          <button className="btn bg-[#00A854] hover:bg-[#008F47] border-none w-full text-white normal-case text-lg h-12">
-            Complete
-          </button>
-        </div>
-      </div>
+    <div className="space-y-4">
+      {tickets.length > 0
+        ? tickets.map((ticket) => (
+            <div
+              key={ticket.id}
+              className="card  bg-base-100 shadow-xl border border-gray-100"
+            >
+              <div className="bg-[#E0E7FF] p-4">
+                <h2 className="text-[#001F3F] font-bold text-md">
+                  {ticket.title}
+                </h2>
+              </div>
+            </div>
+          ))
+        : "No resolved tasks yet."}
     </div>
   );
 };

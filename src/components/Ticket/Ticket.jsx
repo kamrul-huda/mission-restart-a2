@@ -3,6 +3,12 @@ import dateIcon from "../../assets/ri_calendar-line.png";
 const Ticket = ({ ticket, handleInProgress }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const priorityColors = {
+    high: "text-red-500",
+    medium: "text-yellow-500",
+    low: "text-green-500",
+  };
+
   return (
     <div
       key={ticket.id}
@@ -12,21 +18,19 @@ const Ticket = ({ ticket, handleInProgress }) => {
         <h2 className="font-semibold text-md">{ticket.title}</h2>
 
         <div
-          // className="badge badge-lg py-4 px-4 bg-[#C6F6D5] border-none rounded-full flex items-center gap-2"
           className={`badge badge-lg py-4 px-4  border-none rounded-full flex items-center gap-2 
           ${isOpen === false ? "bg-[#C6F6D5]" : "bg-[#F8F3B9]"}`}
         >
           <div
-            //   className="w-3 h-3 bg-[#059669] rounded-full"
             className={`w-3 h-3 rounded-full text-sm
             ${isOpen === false ? "bg-green-600" : "bg-[#FEBB0C]"}`}
           ></div>
           <button
+            disabled={isOpen}
             onClick={() => {
               setIsOpen(true);
-              handleInProgress();
+              handleInProgress(ticket);
             }}
-            // className="text-[#065F46]  font-medium text-base"
             className={`font-medium text-xs
             ${isOpen === false ? "text-[#065F46]" : "text-[#9C7700]"}`}
           >
@@ -40,7 +44,9 @@ const Ticket = ({ ticket, handleInProgress }) => {
       <div className="flex justify-between items-center text-xs text-gray-500">
         <div className="flex gap-3">
           <span>#{ticket.ticketNo}</span>
-          <span className="text-red-500 font-medium">
+          <span
+            className={`font-medium ${priorityColors[ticket.priority.toLowerCase()]}`}
+          >
             {ticket.priority.toUpperCase()} PRIORITY
           </span>
         </div>

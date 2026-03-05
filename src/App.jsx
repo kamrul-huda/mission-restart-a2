@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Banner from "./components/Banner/Banner";
 import CustomerTickets from "./components/CustomerTickets/CustomerTickets";
@@ -6,14 +6,33 @@ import Navbar from "./components/Navbar/Navbar";
 import ResolvedTasks from "./components/ResolvedTasks/ResolvedTasks";
 import TaskStatus from "./components/TaskStatus/TaskStatus";
 import Footer from "./components/Footer/Footer";
+import { toast, ToastContainer } from "react-toastify";
 
 const fetchTickets = async () => {
   const res = await fetch("/tickets.json");
   return res.json();
 };
 
+const ticketspromise = fetchTickets();
 function App() {
-  const ticketspromise = fetchTickets();
+  const [inProgressTickets, setInProgressTickets] = useState([]);
+  const handleInProgress = (ticket) => {
+    const newInProgress = [...inProgressTickets, ticket];
+    setInProgressTickets(newInProgress);
+    toast("Task is in-proggress.");
+  };
+
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const handleCompleted = (ticket) => {
+    const newCompletedTask = [...completedTasks, ticket];
+    setCompletedTasks(newCompletedTask);
+  };
+
+  const removeInProgressTask = (task) => {
+    const filterData = inProgressTickets.filter((x) => x.id !== task.id);
+    setInProgressTickets(filterData);
+    toast(task.title + " has been resolved.");
+  };
 
   return (
     <div>
@@ -22,10 +41,13 @@ function App() {
       </div>
 
       <div className="bg-gray-200 max-w-7xl mx-auto p-10 space-y-12">
-        <Banner></Banner>
+        <Banner
+          inProgressTickets={inProgressTickets}
+          completedTasks={completedTasks}
+        ></Banner>
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-9">
-            <p>Customer Tickets</p>
+            <p className="font-bold mb-4">Customer Tickets</p>
             <Suspense
               fallback={
                 <span className="loading loading-dots loading-xl"></span>
@@ -33,21 +55,27 @@ function App() {
             >
               <CustomerTickets
                 ticketspromise={ticketspromise}
+                handleInProgress={handleInProgress}
               ></CustomerTickets>
             </Suspense>
           </div>
           <div className="col-span-3">
-            <p>Your Status</p>
+            <p className="font-bold mb-4">Your Status</p>
             <div className="space-y-4">
-              <TaskStatus></TaskStatus>
-              <p>Resolved Task</p>
-              <ResolvedTasks></ResolvedTasks>
+              <TaskStatus
+                inProgressTickets={inProgressTickets}
+                handleCompleted={handleCompleted}
+                removeInProgressTask={removeInProgressTask}
+              ></TaskStatus>
+              <p className="font-bold">Resolved Task</p>
+              <ResolvedTasks completedTasks={completedTasks}></ResolvedTasks>
             </div>
           </div>
         </div>
       </div>
 
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
