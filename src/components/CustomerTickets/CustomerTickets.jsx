@@ -6,15 +6,14 @@ const CustomerTickets = ({ ticketspromise }) => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Customer Tickets</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {ticketsData.map((ticket) => (
           <div
             key={ticket.id}
-            className="bg-base-200 rounded-lg p-4 shadow-md w-full max-w-xl"
+            className="bg-base-200 rounded-lg p-4 shadow-md w-full max-w-xl flex flex-col justify-between"
           >
             <div className="flex justify-between items-start mb-2">
-              <h2 className="font-semibold text-lg">{ticket.title}</h2>
+              <h2 className="font-semibold text-md">{ticket.title}</h2>
 
               <span className="badge badge-success gap-2 py-4">
                 <span className="w-2 h-2 bg-green-600 rounded-full"></span>
@@ -22,9 +21,11 @@ const CustomerTickets = ({ ticketspromise }) => {
               </span>
             </div>
 
-            <p className="text-sm text-gray-500 mb-4">{ticket.description}</p>
+            <div className="text-sm text-gray-500 mb-4">
+              {ticket.description}
+            </div>
 
-            <div className="flex justify-between items-center text-sm text-gray-500">
+            <div className="flex justify-between items-center text-xs text-gray-500">
               <div className="flex gap-3">
                 <span>#{ticket.ticketNo}</span>
                 <span className="text-red-500 font-medium">

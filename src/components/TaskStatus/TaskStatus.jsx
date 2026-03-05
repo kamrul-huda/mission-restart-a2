@@ -2,11 +2,16 @@ import React from "react";
 
 const TaskStatus = () => {
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Customer Tickets</h2>
-      <div className="grid grid-cols-1  gap-4">
-        <p>Payment Fail</p>
-        <button className="btn btn-wide btn-success">Wide</button>
+    <div className="bg-base-100 w-full shadow-xl border border-gray-100">
+      <div className="p-4">
+        <h2 className="font-semibold text-md mb-4">
+          Payment Failed - Card Declined
+        </h2>
+        <div class="card-actions">
+          <button class="btn btn-success w-full text-white  text-lg h-10 min-h-0">
+            Complete
+          </button>
+        </div>
       </div>
     </div>
   );

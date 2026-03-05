@@ -16,28 +16,38 @@ function App() {
   const ticketspromise = fetchTickets();
 
   return (
-    <>
-      <div className="max-w-6xl mx-auto">
+    <div>
+      <div className="max-w-7xl mx-auto">
         <Navbar></Navbar>
       </div>
 
-      <div className="bg-gray-200 max-w-6xl mx-auto p-6">
+      <div className="bg-gray-200 max-w-7xl mx-auto p-10 space-y-12">
         <Banner></Banner>
-        <div className="flex justify-between">
-          <Suspense
-            fallback={<span className="loading loading-dots loading-xl"></span>}
-          >
-            <CustomerTickets ticketspromise={ticketspromise}></CustomerTickets>
-          </Suspense>
-
-          <div>
-            <TaskStatus></TaskStatus>
-            <ResolvedTasks></ResolvedTasks>
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-9">
+            <p>Customer Tickets</p>
+            <Suspense
+              fallback={
+                <span className="loading loading-dots loading-xl"></span>
+              }
+            >
+              <CustomerTickets
+                ticketspromise={ticketspromise}
+              ></CustomerTickets>
+            </Suspense>
+          </div>
+          <div className="col-span-3">
+            <p>Your Status</p>
+            <div className="space-y-4">
+              <TaskStatus></TaskStatus>
+              <ResolvedTasks></ResolvedTasks>
+            </div>
           </div>
         </div>
       </div>
+
       <Footer></Footer>
-    </>
+    </div>
   );
 }
 
