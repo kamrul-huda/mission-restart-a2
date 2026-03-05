@@ -39,43 +39,43 @@ function App() {
 
   return (
     <div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <Navbar></Navbar>
       </div>
+      <div className="bg-gray-200 mx-auto px-4 md:px-10 py-10 space-y-12">
+        <div className="bg-gray-200 max-w-[1200px] mx-auto px-4 md:px-10 py-10 space-y-12">
+          <Banner
+            inProgressTickets={inProgressTickets}
+            completedTasks={completedTasks}
+          ></Banner>
 
-      <div className="bg-gray-200 max-w-7xl mx-auto px-4 md:px-10 py-10 space-y-12">
-        <Banner
-          inProgressTickets={inProgressTickets}
-          completedTasks={completedTasks}
-        ></Banner>
-        {/* <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-9"> */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-9">
-            <p className="font-bold mb-4">Customer Tickets</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-9">
+              <p className="font-bold mb-4">Customer Tickets</p>
 
-            <Suspense
-              fallback={
-                <span className="loading loading-dots loading-xl"></span>
-              }
-            >
-              <CustomerTickets
-                ticketspromise={ticketspromise}
-                handleInProgress={handleInProgress}
-              />
-            </Suspense>
-          </div>
+              <Suspense
+                fallback={
+                  <span className="loading loading-dots loading-xl"></span>
+                }
+              >
+                <CustomerTickets
+                  ticketspromise={ticketspromise}
+                  handleInProgress={handleInProgress}
+                />
+              </Suspense>
+            </div>
 
-          <div className="lg:col-span-3">
-            <p className="font-bold mb-4">Your Status</p>
-            <div className="space-y-4">
-              <TaskStatus
-                inProgressTickets={inProgressTickets}
-                handleCompleted={handleCompleted}
-                removeInProgressTask={removeInProgressTask}
-              ></TaskStatus>
-              <p className="font-bold">Resolved Task</p>
-              <ResolvedTasks completedTasks={completedTasks}></ResolvedTasks>
+            <div className="lg:col-span-3">
+              <p className="font-bold mb-4">Your Status</p>
+              <div className="space-y-4">
+                <TaskStatus
+                  inProgressTickets={inProgressTickets}
+                  handleCompleted={handleCompleted}
+                  removeInProgressTask={removeInProgressTask}
+                ></TaskStatus>
+                <p className="font-bold">Resolved Task</p>
+                <ResolvedTasks completedTasks={completedTasks}></ResolvedTasks>
+              </div>
             </div>
           </div>
         </div>

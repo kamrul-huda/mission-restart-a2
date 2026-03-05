@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 px-4 md:px-8">
+    <div className="navbar bg-base-100 px-4 md:px-10">
       {/* Left Section */}
       <div className="navbar-start">
         {/* Mobile Menu */}

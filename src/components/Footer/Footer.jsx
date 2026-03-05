@@ -7,7 +7,7 @@ import globe_icon from "../../assets/fi_globe.png";
 const Footer = () => {
   return (
     <div className="bg-black text-gray-300 border-t border-blue-500">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-6 py-10">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-6 py-10">
         {/* Brand */}
         <div className="space-y-3">
           <h1 className="text-white font-bold text-lg">CS — Ticket System</h1>

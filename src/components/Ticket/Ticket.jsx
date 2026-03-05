@@ -15,7 +15,9 @@ const Ticket = ({ ticket, handleInProgress }) => {
       className="bg-base-200 rounded-lg p-4 shadow-md w-full flex flex-col justify-between"
     >
       <div className="flex justify-between items-start mb-2">
-        <h2 className="font-semibold text-md">{ticket.title}</h2>
+        <h2 className="font-semibold text-sm text-gray-800 truncate max-w-[250px]">
+          {ticket.title}
+        </h2>
 
         <div
           className={`badge badge-lg py-4 px-4  border-none rounded-full flex items-center gap-2 
