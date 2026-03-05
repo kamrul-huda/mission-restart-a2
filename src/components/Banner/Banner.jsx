@@ -7,15 +7,17 @@ const Banner = () => {
     <div className="max-w-7xl mx-auto flex gap-4">
       <div className="relative">
         <img src={banner_1}></img>
-        <p className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-          In-Progress
-        </p>
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="text-white">In-Progress</div>
+          <div className="text-white text-center text-4xl font-bold">0</div>
+        </div>
       </div>
       <div className="relative">
         <img src={banner_2}></img>
-        <p className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-          Resolved
-        </p>
+        <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+          <div className="text-white">Resolved</div>
+          <p className="text-white text-center text-4xl font-bold">0</p>
+        </div>
       </div>
     </div>
   );

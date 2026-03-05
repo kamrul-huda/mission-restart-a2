@@ -46,9 +46,10 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">CS — Ticket System</a>
+        <a className="text-xl font-bold">CS — Ticket System</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+
+      <div className="navbar-end">
         <ul className="menu menu-horizontal px-1">
           <li>
             <a>Home</a>
@@ -69,9 +70,10 @@ const Navbar = () => {
             <a>Contact</a>
           </li>
         </ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="btn border-none text-white font-semibold text-lg px-6 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] hover:from-[#6D28D9] hover:to-[#9333EA] shadow-md transition-all">
+          <span className="text-2xl mr-2 mb-1">+</span>
+          New Ticket
+        </a>
       </div>
     </div>
   );

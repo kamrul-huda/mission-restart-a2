@@ -40,6 +40,7 @@ function App() {
             <p>Your Status</p>
             <div className="space-y-4">
               <TaskStatus></TaskStatus>
+              <p>Resolved Task</p>
               <ResolvedTasks></ResolvedTasks>
             </div>
           </div>
